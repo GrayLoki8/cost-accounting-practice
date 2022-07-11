@@ -1,7 +1,7 @@
 import "./Costs.css"
 import CostItem from "./CostItem";
-import Card from "./Card";
-function Costs(props) {
+import Card from "../ui/Card";
+const Costs=(props)=> {
     return(
         <Card className="costs">
             <CostItem date={props.costs[0].costDate}
