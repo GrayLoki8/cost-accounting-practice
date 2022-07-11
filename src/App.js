@@ -13,6 +13,12 @@ const App=() =>{
          costDate : new Date(2022, 4, 12),
          costDescription : 'Холодильник5',
          costAmount : 100,
+     },
+     {
+         id:'c3',
+         costDate : new Date(2021, 1, 22),
+         costDescription : 'Холодильник45',
+         costAmount : 1220,
      }
  ];
  const addCostHandler=(cost)=>{
