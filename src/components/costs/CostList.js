@@ -12,7 +12,7 @@ const CostList=(props)=> {
             date={cost.date}
             description={cost.description}
             amount={cost.amount}/>
-        ))};
+        ))}
     </ul>
 }
 export default CostList
