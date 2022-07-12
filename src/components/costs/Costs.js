@@ -8,14 +8,18 @@ const Costs=(props)=> {
     const yearChangeHandler=(year)=>{
     setSelectedYear(year);
    };
+    const filteredCosts=props.costs.filter((cost)=>{
+        return cost.date.getFullYear().toString()===selectedYear;
+    });
     return(
         <Card className="costs">
             <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler}/>
-            {props.costs.map((cost)=>(
+            {filteredCosts.map((cost)=>(
                 <CostItem
-                    date={cost.costDate}
-                    description={cost.costDescription}
-                    amount={cost.costAmount}/>
+                    key={cost.id}
+                    date={cost.date}
+                    description={cost.description}
+                    amount={cost.amount}/>
             ))
             };
 

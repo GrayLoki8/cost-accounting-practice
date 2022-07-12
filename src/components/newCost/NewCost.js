@@ -4,11 +4,12 @@ const NewCost=(props)=>{
    const saveCostDataHandler=(inputCostData)=>{
     const costData={
         ...inputCostData,
-        id:new Math.random().toString()
+        id:Math.random().toString()
     };
+    console.log(costData);
     props.onAddCost(costData);
 
-   }
+   };
 
     return (
         <div className="new-cost">

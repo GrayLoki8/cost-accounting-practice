@@ -1,7 +1,7 @@
 import "./CostForm.css"
 import {useState} from "react";
 const CostForm=(props)=>{
-    const [inputName,setInputName]=useState('');
+    const [inputDescription,setInputDescription]=useState('');
     const [inputAmount,setInputAmount]=useState('');
     const [inputDate,setInputDate]=useState('');
   /*const [userInput,setUserInput]= useState({
@@ -22,7 +22,7 @@ const CostForm=(props)=>{
 
             }
         });*/
-        setInputName(event.target.value);
+        setInputDescription(event.target.value);
     };
     const amountChangeHandler=(event)=>{
        /* setUserInput((previousState)=>{
@@ -48,30 +48,34 @@ const CostForm=(props)=>{
     };
     const submitHandler=(event)=>{
         event.preventDefault();
+        console.log("lok");
         const costData={
-            name:inputName,
+            description:inputDescription,
             amount:inputAmount,
             date:new Date(inputDate)
         };
+        console.log(event);
+        console.log(costData);
+
         props.onSaveCostData(costData);
-        setInputName('');
+        setInputDescription('');
         setInputAmount('');
         setInputDate('');
     };
     return (
-        <form onSubmit="">
+        <form onSubmit={submitHandler}>
             <div className="new-cost__controls">
             <div className="new-cost__control">
                 <label >Название</label>
-                <input type="text" onChange={nameChangeHandler} value={inputName}/>
+                <input type="text" onChange={nameChangeHandler} value={inputDescription}/>
             </div>
                 <div className="new-cost__control">
                     <label >Сумма</label>
-                    <input type="number" min='0.01' step='0.01' value={inputAmount} onChange={amountChangeHandler}/>
+                    <input type="number" min='0.01' step='0.01' onChange={amountChangeHandler} value={inputAmount} />
                 </div>
                 <div className="new-cost__control">
                     <label >Дата</label>
-                    <input type="date" min='2019-01-01' step='2022-12-31' value={inputDate} onChange={dateChangeHandler}/>
+                    <input type="date" min='2019-01-01' step='2022-12-31' onChange={dateChangeHandler} value={inputDate} />
                 </div>
                 <div className="new-cost__actions">
                     <button type="submit">Добавить Расход</button>
